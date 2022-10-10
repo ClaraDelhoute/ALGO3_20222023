@@ -39,7 +39,7 @@ int recursive_puissance(int a, int n) // question 2)a et b
 }
 
 
-int fonction_recursive(int a,int n)
+int fonction_recursive(int a,int n) // Question c
 {
     if(a == 0)
     {
@@ -79,7 +79,7 @@ int main()
     printf("%d\n",fonction_recursive(6,2)); //Test
     printf("%d\n",fonction_recursive(7,2)); //Test ok
     printf("%d\n",fonction_recursive(6,3)); //Test ok
-    printf("%d\n",fonction_recursive(2,7));
+    printf("%d\n",fonction_recursive(2,7)); //Test ok
 
 
 }
