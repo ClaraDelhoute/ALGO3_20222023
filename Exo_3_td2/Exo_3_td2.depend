@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1664900740 source:c:\users\delhoute\desktop\algo3\exo_3_td2\main.c
+	<stdio.h>
+	<stdlib.h>
+
