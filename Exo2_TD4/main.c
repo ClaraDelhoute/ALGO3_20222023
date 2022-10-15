@@ -2,15 +2,14 @@
 #include <stdlib.h>
 typedef int Tab[100];
 
-int retourne_indice(int i, int j, Tab t)
+int retourne_indice(int debut, int fin, Tab t)
 {
-    int min=*t;
-    int indice_min=0;
-    for(i=1;i<j;i++)
+    int i;
+    int indice_min=debut;
+    for(i=debut;i<fin;i++)
     {
-        if(*(t+i)<min)
+        if(*(t+i)<*(t+indice_min))
         {
-            min=*(t+i);
             indice_min=i;
         }
     }
@@ -24,17 +23,18 @@ void permute(Tab t, int i, int j)
     *(t+j)=temp;
 }
 
-void tri_tab(Tab t, int n)
+void tri_tab(Tab t,int n)
 {
     int i;
     int occ=0;
     int m;
     for(i=0;i<n;i++)
     {
-        m=retourne_indice(i,n,t);
-        if(i != m)
+         m=retourne_indice(i,n,t);
+        if( m != i )
         {
-            permute(t,m,i);
+
+            permute(t,i,m);
             occ++;
         }
     }
@@ -76,13 +76,14 @@ void f(Tab t, int n)
 }
 int main()
 {
-    int indice_min=0;
     Tab t1  ={1,0,4,6,3,7,4};
-    printf("%d",retourne_indice(0, 7,t1));
+    printf("%d\n",retourne_indice(0, 7,t1));
     Tab t2 = {3,17,9,15,2,7,10,9,8,12};
+    printf("%d\n", retourne_indice(0,10,t2));
     tri_tab(t2,10);
     affiche_tab(t2,10);
     printf("\n");
     f(t2,10);
     affiche_tab(t2,10);
 }
+
