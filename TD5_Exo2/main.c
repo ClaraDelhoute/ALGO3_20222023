@@ -32,7 +32,7 @@ void triTableau(Tab t, int n)
         }
     }
 }
-void fusion(Tab t1, int n1, Tab t2, int n2)
+void fusion(Tab t1, int n1, Tab t2, int n2) //complexité O(n1*n2)
 {
     int i,j;
     Tab t3;
@@ -62,3 +62,8 @@ int main()
     printf("\n");
     fusion(t1,5,t2,5);
 }
+
+
+//Si tous les éléments de t1 < tous les éléments de t2, j'aurais n2 compairsaon
+//si tous les éléments de t1 = t2 : n1+n2 comparaison
+
