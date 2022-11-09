@@ -150,3 +150,24 @@ int afficherDoublons(Tab t, int nbClients)
     }
     return numberOfDoublons/2; //car le programme va calculer 2 fois les doublons
 }
+
+int ajouterSansDoublons(Client c, Tab t, int * nbClients)
+{
+    int i;
+    int retour;
+    t=(Client*)malloc(*nbClients*sizeof(Client));
+    for(i=0;i<*nbClients; i++)
+    {
+        if(t[i].identifiant == c.identifiant && t[i].nom == c.nom)
+        {
+            ajouter(c,t,nbClients);
+            retour=1;
+        }
+        else
+        {
+            retour=0;
+        }
+    }
+    ajouter(c,t,nbClients);
+    return retour;
+}
