@@ -64,3 +64,18 @@ int saisieClients(Tab t, int p, int *nbClients)
     }
     return retour;
 }
+
+
+void modifierNom(Tab t, int nbClients, int i)
+{
+    for(int j=0; j<nbClients; j++)
+    {
+        if(t[j].identifiant == i)
+        {
+            printf("Veuillez entre le nouveau nom \n");
+            Chaine nouveau_nom;
+            scanf("%s", nouveau_nom);
+            strcpy(t[i].nom, nouveau_nom);
+        }
+    }
+}
