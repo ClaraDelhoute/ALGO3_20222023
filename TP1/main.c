@@ -171,3 +171,25 @@ int ajouterSansDoublons(Client c, Tab t, int * nbClients)
     ajouter(c,t,nbClients);
     return retour;
 }
+int enleverClient (int idClient, Tab t, int *nbClients)
+{
+    int retour;
+    int i,j;
+    for(i=0; i<*nbClients; i++)
+    {
+        if(t[i].identifiant== idClient)
+        {
+            for(j=i;i<*nbClients;j++)
+            {
+
+
+            t[j].identifiant=t[j+1].identifiant;
+            strcpy(t[j].nom, t[j+1].nom);
+        }
+        *nbClients=*nbClients-1;
+        retour=1;
+        }
+        else retour=0;
+    }
+    return retour;
+}
