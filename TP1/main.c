@@ -12,3 +12,10 @@ typedef struct {
 
 typedef Client Tab[MAX]; // définition de la structure Client et du tableau de Client
 
+void saisie(Client *c) //saisie d'un client
+{
+    printf("Veuillez saisir un identifiant pour le client\n");
+    scanf("%d",&(c->identifiant));
+    printf("Veuillez saisir le nom du client\n");
+    scanf("%s",c->nom);
+}
