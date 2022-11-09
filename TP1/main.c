@@ -79,3 +79,13 @@ void modifierNom(Tab t, int nbClients, int i)
         }
     }
 }
+
+void afficherClients(Tab t, int nbClients)
+{
+    int i;
+    for(i=0;i<MAX-nbClients;i++)
+    {
+        printf("L'identifiant %d \n", t[i].identifiant);
+        printf("Le nom : %s \n", t[i].nom);
+    }
+}
