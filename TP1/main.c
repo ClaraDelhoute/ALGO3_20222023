@@ -109,3 +109,25 @@ int rechercheClient(int idClient, Tab t, int nbClients, int *indiceClient)
         *indiceClient=indice;
         return retour;
 }
+
+void rechercheIdMinMax(Tab t, int nbClients, int * indiceIdMin, int * indiceIdMax)
+{
+    int i;
+    int idMin= t[0].identifiant;
+    int idMax = t[0].identifiant;
+    for(i=1;i<nbClients; i++)
+    {
+
+            if( idMin > t[i].identifiant)
+            {
+                idMin= t[i].identifiant;
+            }
+            if (idMax < t[i].identifiant)
+            {
+                idMax = t[i].identifiant;
+            }
+
+    }
+    *indiceIdMax=idMax;
+    *indiceIdMin=idMin;
+}
