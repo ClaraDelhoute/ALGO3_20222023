@@ -19,3 +19,9 @@ void saisie(Client *c) //saisie d'un client
     printf("Veuillez saisir le nom du client\n");
     scanf("%s",c->nom);
 }
+
+void afficheClient(Client *c) //affichage d'un client
+{
+    printf("L'identifiant : %d\n " ,c->identifiant );
+    printf("Le nom : %s\n", c->nom);
+}
