@@ -89,3 +89,23 @@ void afficherClients(Tab t, int nbClients)
         printf("Le nom : %s \n", t[i].nom);
     }
 }
+
+int rechercheClient(int idClient, Tab t, int nbClients, int *indiceClient)
+{
+        int indice, retour;
+        int i;
+        for(i=0; i<nbClients;i++)
+        {
+            if(t[i].identifiant == idClient)
+            {
+                indice= i;
+                retour=1;
+            }
+            else
+            {
+                retour=0;
+            }
+        }
+        *indiceClient=indice;
+        return retour;
+}
