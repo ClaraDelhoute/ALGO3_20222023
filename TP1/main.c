@@ -193,3 +193,25 @@ int enleverClient (int idClient, Tab t, int *nbClients)
     }
     return retour;
 }
+
+int main()
+{
+    Client c1;
+    int nbClients=0;
+    int indiceClient;
+    int indiceMin,indiceMax;
+    Tab t;
+    saisie(&c1); //Test ok
+    afficheClient(&c1); //Test ok
+    saisieClients(t,3,&nbClients); //Test ok;
+    afficherClients(t,MAX-nbClients); //Test ok
+    rechercheClient(8,t,nbClients,&indiceClient);
+    printf("L'indice du client recherche est : %d \n", indiceClient); //Test ok
+    rechercheIdMinMax(t,nbClients,&indiceMin,&indiceMax); //test ok
+    printf("L'indice du minimun est %d, l'indice du maximun est %d ", indiceMin, indiceMax); //test ok
+    printf(" Nombre de doublons : %d \n ",afficherDoublons(t,nbClients));
+    printf("%d \n ",ajouterSansDoublons(c1,t,&nbClients));
+    enleverClient(8,t,&nbClients);
+    afficherClients(t,nbClients);
+    return 0;
+}
