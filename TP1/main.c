@@ -43,3 +43,24 @@ int ajouter(Client c, Tab t, int *nbClients)
     }
     return ret;
 }
+
+
+int saisieClients(Tab t, int p, int *nbClients)
+{
+    int i,retour;
+    if( p  < MAX-*nbClients)
+    {
+        printf("toto");
+        for(i=0;i<p;i++)
+        {
+            Client c;
+            ajouter(c,t,nbClients);
+
+        }
+    }
+    else
+    {
+        retour=0;
+    }
+    return retour;
+}
