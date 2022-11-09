@@ -25,3 +25,21 @@ void afficheClient(Client *c) //affichage d'un client
     printf("L'identifiant : %d\n " ,c->identifiant );
     printf("Le nom : %s\n", c->nom);
 }
+
+int ajouter(Client c, Tab t, int *nbClients)
+{
+    int ret;
+    if( t != NULL )
+    {
+        saisie(&c);
+        t[*nbClients].identifiant=c.identifiant;
+        strcpy(t[*nbClients].nom,c.nom);
+        ret=1;
+        *nbClients= *nbClients+1;
+    }
+    else
+    {
+        ret=0;
+    }
+    return ret;
+}
