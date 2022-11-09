@@ -131,3 +131,22 @@ void rechercheIdMinMax(Tab t, int nbClients, int * indiceIdMin, int * indiceIdMa
     *indiceIdMax=idMax;
     *indiceIdMin=idMin;
 }
+int afficherDoublons(Tab t, int nbClients)
+{
+    int i,j;
+    int numberOfDoublons = 0;
+    for(i=0; i<nbClients-1; i++)
+    {
+        for(j=i; j<nbClients; j++)
+        {
+            if ( strcmp(t[i].nom, t[j].nom)==0 && t[i].identifiant==t[j].identifiant )
+            {
+                printf("Id du doublons : %d \n", t[i].identifiant);
+                printf("Nom du doublons : %s \n", t[i].nom);
+                numberOfDoublons++;
+
+            }
+        }
+    }
+    return numberOfDoublons/2; //car le programme va calculer 2 fois les doublons
+}
