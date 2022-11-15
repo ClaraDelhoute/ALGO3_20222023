@@ -29,7 +29,7 @@ void ajouteClientFichier(char  *nomFichier)
     Client c;
     FILE *f;
     f=fopen(nomFichier, "a");
-    if (!f) printf("Erreur à l'ouverture du fichier %s\n",nomFichier);
+    if (!f) printf("Erreur Ã  l'ouverture du fichier %s\n",nomFichier);
     else
     {
 
@@ -68,6 +68,7 @@ void ajouteClientFichier(char  *nomFichier)
              compteur++;
          }
      }
+     fclose(f);
      return compteur;
  }
 
@@ -80,7 +81,7 @@ void ajouteClientFichier_Bis(char * nomFichier)
     while(!feof(f))
     {
         fscanf(f," %d %s %s ",&c.id,c.nom,c.tel);
-        if(c.id == c1.id || strcmp(c.nom,c1.nom)==0 || strcmp(c.tel,c1.tel)==0)
+        if(c.id == c1.id || strcmp(c.nom,c1.nom)==1 || strcmp(c.tel,c1.tel)==1)
         {
             trouve=0;
         }
@@ -157,6 +158,39 @@ void appartientClientFichier(char *nomFichier, char *nom)
         printf("Le client appartient au fichier \n");
     }
     else printf("Client non repertorie\n ");
+    fclose(f);
+}
+
+void nombreClientFichierSansDoublons(char *nomFichier)
+{
+    FILE *f=fopen(nomFichier,"r");
+    int compteur=0;
+    int compteur2=0;
+    Client c;
+    Tab t;
+    int i=0,j;
+    while(!feof(f))
+    {
+        fscanf(f," %d %s %s ", &c.id, c.nom, c.tel);
+        t[i].id=c.id;
+        strcpy(t[i].nom, c.nom );
+        strcpy(t[i].tel, c.tel);
+        i++;
+        compteur++;
+        compteur2++;
+    }
+    for(i=0;i<compteur-1;i++)
+    {
+        for(j=i;j<compteur;j++)
+        {
+            if((t[i].id == t[j].id) && (strcmp(t[i].nom,t[j].nom)==1) && (strcmp(t[i].tel,t[j].tel)==1))
+            {
+                compteur2--;
+            }
+        }
+    }
+    printf(" le nombre sans doublons est de %d \n", compteur2);
+    fclose(f);
 }
 int main()
 {
