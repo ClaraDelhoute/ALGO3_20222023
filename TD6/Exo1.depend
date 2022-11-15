@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1668508146 source:c:\users\clara\onedrive\bureau\algo3\exo1\td6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
