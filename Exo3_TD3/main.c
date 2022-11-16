@@ -72,9 +72,10 @@ int maximun(int n, Tab t)
     }
         else
         {
-            if(t[n]<t[n-1])
+            maximun(n-1,t);
+            if(max < t[n])
             {
-                max=maximun(n-1,t);
+                return max;
             }
             else
             {
@@ -93,9 +94,10 @@ int minimun(int n, Tab t)
    }
     else
     {
-        if(t[n]>t[n-1])
+        min=minimun(n-1,t);
+        if(min > t[n])
         {
-            min=minimun(n-1,t);
+            
             return min;
 
         }
