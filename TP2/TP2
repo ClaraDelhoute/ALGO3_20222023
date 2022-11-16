@@ -28,3 +28,15 @@ void affichage(int *t, int n, int i)
     }
 
 }
+
+int somme_recursive(int *t, int n)
+{
+    if( n == 0)
+    {
+        return t[0];
+    }
+    else
+    {
+        return t[n]+somme_recursive(t,n-1);
+    }
+}
