@@ -65,3 +65,21 @@ void affichageTabDecroissant(int *t, int n)
         affichageTabDecroissant(t,n-1);
     }
 }
+
+int recherche(int  *t, int n, int v)
+{
+    if(n < 0)
+    {
+        return -1;
+
+    }
+        if(t[n]==v)
+        {
+            return n;
+
+        }
+        else
+        {
+         return recherche(t,n-1,v);
+        }
+}
