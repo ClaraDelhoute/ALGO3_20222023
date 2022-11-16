@@ -40,3 +40,19 @@ int somme_recursive(int *t, int n)
         return t[n]+somme_recursive(t,n-1);
     }
 }
+
+int superieurValeur(int *t, int n, int v)
+{
+    if( n == 0)
+    {
+        return 0;
+    }
+        if(t[n]>v)
+        {
+            return 1+superieurValeur(t,n-1,v);
+        }
+        else
+        {
+            return 0+superieurValeur(t,n-1,v);
+        }
+}
