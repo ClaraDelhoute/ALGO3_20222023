@@ -56,3 +56,12 @@ int superieurValeur(int *t, int n, int v)
             return 0+superieurValeur(t,n-1,v);
         }
 }
+
+void affichageTabDecroissant(int *t, int n)
+{
+    if( n >= 0)
+    {
+        printf("%d \n", t[n]);
+        affichageTabDecroissant(t,n-1);
+    }
+}
