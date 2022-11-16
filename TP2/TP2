@@ -83,3 +83,34 @@ int recherche(int  *t, int n, int v)
          return recherche(t,n-1,v);
         }
 }
+
+int dicho(Tab t, int c, int g, int d, int * r) //il faut que le tableau soit trié
+{
+    triTableau(t,d);
+    int ret= g + (d-g)/2;
+    if (t[ret] == c)
+    {
+        *r=ret;
+        return *r;
+    }
+    else
+    {
+        if(t[ret] > c)
+        {
+             dicho(t,c,g,ret,r); // ou return dicho
+        }
+        else
+        {
+
+            if(t[ret] < c)
+            {
+                 dicho(t,c,ret,d,r);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+    return;
+}
