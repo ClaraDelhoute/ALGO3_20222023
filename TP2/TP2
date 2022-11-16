@@ -2,7 +2,26 @@
 #include <stdlib.h>
 #define N 10
 
-
+void permute(int *t, int i, int j)
+{
+    int temp=t[i];
+    t[i]=t[j];
+    t[j]=temp;
+}
+void triTableau(int *t, int n)
+{
+    int i,j;
+    for(i=0;i<=n-1;i++)
+    {
+        for(j=i+1;j<=n;j++)
+        {
+            if(t[i]>t[j])
+            {
+                permute(t,i,j);
+            }
+        }
+    }
+}
 
 int somme(int *t, int n, int i) //méthode écrite dans le tp
 {
@@ -114,3 +133,36 @@ int dicho(Tab t, int c, int g, int d, int * r) //il faut que le tableau soit tri
     }
     return;
 }
+
+int main()
+{
+    int r=0;
+    Tab t1={4,2,8,0,7,3,1,5,9,6};
+    Tab t2={5,7,3}; //Tableau de test pour mes fonctions
+    int longueurTab1=9;
+    printf("La somme des entier du tableau t1 = %d \n", somme(t1,N,0));
+    printf("Appel de ma fontion affichage\n");
+    affichage(t1,longueurTab1,0); //Test ok
+    affichage(t2,2,0); //ok
+    printf("Appel de la fontion somme_recursive \n");
+    printf("La somme des entiers du tableau t1 est = %d \n", somme_recursive(t1,longueurTab1)); //Test ok
+     printf("Test affichage somme recursive : somme = %d \n", somme_recursive(t2,2)); //Test ok
+     printf("Appel de la fontion superieurValeur \n");
+    printf("Le nombre de valeur superieur a v=%d est : %d\n", 7, superieurValeur(t1,longueurTab1+1,7)); //Test ok
+    printf("Le nombre de valeur superieur à v=%d est : %d`\n",4,superieurValeur(t1,longueurTab1,4));
+    printf("Appel de la fonction affichagedecroissant \n");
+    affichageTabDecroissant(t1,longueurTab1); //Test ok
+    printf("Deuxième appel\n ");
+    affichageTabDecroissant(t2,2); //Test ok
+    printf("Appel de la fontion recherche \n");
+    printf("indice de la valeur v=%d recherche est : %d\n",7,recherche(t2,2,7)); //test ok
+    printf("indice la valeur recherche v=%d est : %d \n", 8,recherche(t1,longueurTab1,8)); //test ok
+    printf("indice de la valeur recherche v=%d est %d \n", 10,recherche(t1,longueurTab1,10)); //Test ok
+    printf(" indice de la valeur recherche v=%d est %d \n",15,recherche(t2,2,15)); //Test ok
+    Tab t3={2,3,5,6,8,9};
+    printf("Appel de la fontion dicho \n");
+    printf("Recherche dichotomique sur tableau 1 indice de la valeur %d  est %d \n",3,dicho(t1,3,0,longueurTab1,&r)); //Test ok, t1 est trié donc 3 récupere la position 3
+    printf("Recheche dichotomique indice de la valeur %d est %d\n",5,dicho(t3,5,0,5,&r)); //Test ok
+    printf("Recherche dichotomique indice de la valeur %d est %d \n", 1,dicho(t3,1,0,5,&r));
+    return 0;
+    }
