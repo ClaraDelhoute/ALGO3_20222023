@@ -32,23 +32,21 @@ void triTableau(Tab t, int n)
         }
     }
 }
-void fusion(Tab t1, int n1, Tab t2, int n2) //complexité O(n1*n2)
+ void fusion(Tab t1, int n1, Tab t2, int n2) //complexité O(n1+n2)
 {
-    int i,j;
-    Tab t3;
-    if(n1+n2 <= MAX)
-    {
-    for(i=0; i<n1;i++)
-    {
-        t3[i]=t1[i];
-    }
-    for(j=0;j<n2;j++)
-    {
-        t3[j+n1]=t2[j];
-    }
-    }
-    triTableau(t3,n1+n2);
-    affichage(t3,n1+n2);
+Tab t[n1+n2];
+int i, j, k=0;
+for(i=0; i <n1+n2; i++ )
+if(t1[i]<t2[j]){
+t[k]=t1[i];
+i++;
+}
+else {
+t[k]=t2[j];
+j++;
+}
+for(i=0 ; i<n1; i++) {t[k]=t1[i]; k++;}
+for(j =0; j<n2; j++ ) {t[k]=t2[j]; k++;}
 }
 
 
