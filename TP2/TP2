@@ -17,3 +17,14 @@ int somme(int *t, int n, int i) //méthode écrite dans le tp
      printf("\t somme a partir de l'indice %d = %d \n",i,res);
     return res;
 }
+
+
+void affichage(int *t, int n, int i)
+{
+    if( i<= n)
+    {
+        printf("%d \n", t[i]);
+        affichage(t,n,i+1);
+    }
+
+}
