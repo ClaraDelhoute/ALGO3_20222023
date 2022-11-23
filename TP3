@@ -53,3 +53,44 @@ void triSelection(int *t, int n)
         }
     }
 }
+int partionner(int *t, int debut, int fin)
+{
+    int p=t[debut];
+    int i= debut;
+    int j=fin +1 ;
+    int fini = 0 ;
+    while(!fini)
+    {
+        do
+        {
+            i++;
+        }
+        while(t[i]<p); //On partinionne les éléments <pivot
+
+    do
+    {
+        j=j-1;
+    }
+    while(t[j]>=p); //On partionne les les éléments >= pivot
+    if(i<j)
+    {
+        permute(t,i,j);
+    }
+    else
+    {
+        fini = 1 ;
+    }
+    }
+    return j;
+
+}
+void triRapide(int * t, int debut, int fin)
+{
+    int p;
+    if (debut<fin)
+    {
+        p=partionner(t,debut,fin);
+        triRapide(t,debut,p-1);
+        triRapide(t,p+1,fin);
+    }
+}
