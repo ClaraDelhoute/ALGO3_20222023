@@ -94,3 +94,30 @@ void triRapide(int * t, int debut, int fin)
         triRapide(t,p+1,fin);
     }
 }
+int main()
+{
+    double temps_debut, temps_fin;
+    Tab t; Tab t2;
+    remplirTableau(t,N);
+    affichage(t,N);
+    recopie(t,t2,N);
+    printf("Après recopie \n");
+    affichage(t,N);
+    printf("Tri par selection \n");
+    temps_debut=(double)clock();
+    triSelection(t,N);
+    printf("Apres le tri par selection\n");
+    temps_fin=(double)clock();
+    printf("Duree du traitement : %f ms \n", 1000*(temps_fin-temps_debut));
+    affichage(t,N);
+    Tab t3;
+    remplirTableau(t3,N);
+    printf("Tri rapide \n");
+    temps_debut=(double)clock();
+    triRapide(t3,0,N);
+    temps_fin=(double)clock();
+    printf("Duree du traitement : %f ms \n", 1000*(temps_fin-temps_debut));
+    printf("Après le triRapide\n");
+    printf("Affichage \n");
+    affichage(t3,N);
+}
