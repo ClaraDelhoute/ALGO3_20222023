@@ -31,3 +31,25 @@ void affichage(int *t, int n)
         printf("%d\n",t[i]);
     }
 }
+
+
+void permute(int *t, int i,int j)
+{
+    int temp=t[i];
+    t[i]=t[j];
+    t[j]=temp;
+}
+void triSelection(int *t, int n)
+{
+    int i,j;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(t[i]>t[j])
+            {
+            permute(t,i,j);
+            }
+        }
+    }
+}
