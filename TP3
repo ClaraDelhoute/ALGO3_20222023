@@ -120,4 +120,18 @@ int main()
     printf("Après le triRapide\n");
     printf("Affichage \n");
     affichage(t3,N);
+    Tab t4;
+     temps_debut=(double)clock();
+    for(int i=0;i<10;i++)
+    {
+
+        remplirTableau(t4,N);
+
+        triSelection(t4,N);
+        affichage(t4,N);
+
+
+    }
+    temps_fin=(double)clock();
+    printf("Duree du traitement : %f ms \n", 1000*(temps_fin-temps_debut));
 }
