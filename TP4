@@ -1,0 +1,7 @@
+
+typedef char Chaine[10];
+typedef struct {
+                int id;
+                Chaine nom;
+                } Client;
+              
