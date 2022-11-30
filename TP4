@@ -5,3 +5,10 @@ typedef struct {
                 Chaine nom;
                 } Client;
               
+void saisieClient(Client *c )
+{
+    printf("Entrer l'identifiant du client \n");
+    scanf("%d", &c->id);
+    printf("Entrer le nom du client \n");
+    scanf("%s", c->nom);
+}
