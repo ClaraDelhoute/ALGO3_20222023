@@ -59,3 +59,27 @@ void ajouteClientFichier(char  *nomFichier)
      fclose(f);
      return compteur;
  }
+ void appartientClientFichier(char *nomFichier, char *nom )
+{
+    FILE *f=fopen(nomFichier,"r+");
+
+    Client c;
+    int trouve=0;
+    while(!feof(f))
+    {
+        fscanf(f, "%d %s ", &c.id, c.nom );
+
+        if(strcmp(c.nom, nom) == 1)
+        {
+            trouve=1;
+        }
+
+
+    }
+    if(trouve == 1)
+    {
+        printf("Le client n'appartient au fichier \n");
+    }
+    else printf("Le client appartient  au fichier");
+    fclose(f);
+}
