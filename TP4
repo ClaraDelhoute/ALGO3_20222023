@@ -12,3 +12,18 @@ void saisieClient(Client *c )
     printf("Entrer le nom du client \n");
     scanf("%s", c->nom);
 }
+
+void ajouteClientFichier(char  *nomFichier)
+{
+    Client c;
+    FILE *f;
+    f=fopen(nomFichier, "a");
+    if (!f) printf("Erreur à l'ouverture du fichier %s\n",nomFichier);
+    else
+    {
+
+    saisieClient(&c);
+    fprintf(f," %d %s  ",c.id,c.nom);
+    fclose(f);
+    }
+}
