@@ -111,3 +111,33 @@ void ajouteClientFichierSansDoublons(char *nomFichier)
 
     fclose(f);
 }
+void fusionFichier(char *nomFichier1, char *nomFichier2, char *nomFichier3)
+{
+    FILE *f1=fopen(nomFichier1,"r");
+    FILE *f2=fopen(nomFichier2,"r");
+    FILE *f3=fopen(nomFichier3,"w");
+    Client c;
+    Client c2;
+    while(feof(f1))
+    {
+        fscanf(f1,"%d %s", &c.id, c.nom);
+        while(feof(f2))
+        {
+            fscanf(f2,"%d %s", &c2.id, c2.nom);
+            if(c.id == c2.id && strcmp(c.nom, c2.nom)==1)
+            {
+                printf("Le client existe déjà \n");
+                fprintf(f3,"%d %s ", c.id, c.nom);
+            }
+            else
+            {
+                fprintf(f3,"%d %s", c.id, c.nom);
+                fprintf(f3,"%d %s", c2.id, c2.nom);
+            }
+        }
+
+    }
+    fclose(f1);
+    fclose(f2);
+    fclose(f3);
+}
