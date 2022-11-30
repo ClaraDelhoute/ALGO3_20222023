@@ -83,3 +83,31 @@ void ajouteClientFichier(char  *nomFichier)
     else printf("Le client appartient  au fichier");
     fclose(f);
 }
+
+void ajouteClientFichierSansDoublons(char *nomFichier)
+{
+
+    FILE *f=fopen(nomFichier,"a");
+    int trouve=0;
+    Client c;
+    Client c1;
+    saisieClient(&c);
+    while(!feof(f))
+    {
+        fscanf(f,"%d %s",&c1.id,c1.nom);
+        if(c.id==c1.id && strcmp(c.nom,c1.nom)== 1 )
+        {
+            trouve=1;
+        }
+    }
+    if(trouve==1)
+    {
+        printf("Le client existe déjà");
+    }
+    else
+    {
+        fprintf(f,"%d %s",c.id,c.nom);
+    }
+
+    fclose(f);
+}
