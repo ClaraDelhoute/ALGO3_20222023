@@ -27,3 +27,18 @@ void ajouteClientFichier(char  *nomFichier)
     fclose(f);
     }
 }
+ void afficheClientsFichier(char * nomFichier)
+ {
+     int fin;
+     FILE *f=fopen(nomFichier,"r");
+     Client c;
+     while(!feof(f))
+     {
+         fin=fscanf(f," %d %s ", &c.id,c.nom);
+         if(fin != EOF)
+         {
+             printf(" %d %s  ", c.id, c.nom);
+         }
+     }
+     fclose(f);
+ }
