@@ -141,3 +141,22 @@ void fusionFichier(char *nomFichier1, char *nomFichier2, char *nomFichier3)
     fclose(f2);
     fclose(f3);
 }
+
+int main()
+{
+    char *nomFichier="C:/Users/clara/OneDrive/Bureau/tp4.txt";
+   //ajouteClientFichier(nomFichier); //ok
+   afficheClientsFichier(nomFichier); //Test ok
+   printf("\n");
+    printf("%d",nombreClientsFichier(nomFichier)); //Test ok
+    printf("\n");
+    appartientClientFichier(nomFichier,"christian"); //Test ok christian n'appartien pas
+    appartientClientFichier(nomFichier,"yassin")
+    printf("\n");//Test ok yassin appartient bien
+    ajouteClientFichierSansDoublons(nomFichier);
+    char *nomFichier1="C:/Users/clara/OneDrive/Bureau/data-client1.txt";
+    char *nomFichier2="C:/Users/clara/OneDrive/Bureau/data-clients2.txt";
+    char *nomFichier3="C:/Users/clara/OneDrive/Bureau/data-clients3.txt";
+    fusionFichier(nomFichier1, nomFichier2,nomFichier3);
+   return 0;
+}
